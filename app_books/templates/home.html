@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Página Principal
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid mt-3 text-start" id="home">
+        {% if user.is_authenticated %}
+            <h3>Bienvenido a mi sitio de libros, {{ user.username }}!</h3>
+        {% else %}
+            <h3>Bienvenido a mi sitio de libros, invitado.</h3>
+            <p>
+                <a href="{% url 'login' %}" class="text-primary">Inicia sesión</a> para ver más contenido
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}
